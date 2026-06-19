@@ -1,0 +1,372 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<style>
+  .bbRig{animation:bbDrive 1.2s cubic-bezier(.2,.7,.3,1) both, bbRumble 2.6s ease-in-out 1.2s infinite}
+  .bbDogA{transform-box:fill-box;transform-origin:50% 100%;animation:bbBobA 1.5s ease-in-out 1.3s infinite}
+  .bbDogB{transform-box:fill-box;transform-origin:50% 100%;animation:bbBobB 1.7s ease-in-out 1.35s infinite}
+  .bbBar{animation:bbBlink 4s steps(1,end) 1.4s infinite}
+  .bbSun{transform-box:fill-box;transform-origin:center;animation:bbSun 4.5s ease-in-out infinite}
+  @keyframes bbDrive{from{transform:translateX(-240px)}to{transform:translateX(0)}}
+  @keyframes bbRumble{0%,100%{transform:translateY(0)}30%{transform:translateY(-1px)}65%{transform:translateY(.6px)}}
+  @keyframes bbBobA{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-2.5px) rotate(4deg)}}
+  @keyframes bbBobB{0%,100%{transform:translateY(0) rotate(4deg)}50%{transform:translateY(-3px) rotate(-4deg)}}
+  .bbPole1{transform-box:fill-box;transform-origin:100% 100%;animation:bbPole1k 1.25s ease-in-out 1.2s infinite}
+  .bbPole2{transform-box:fill-box;transform-origin:100% 100%;animation:bbPole2k 1.5s ease-in-out 1.25s infinite}
+  @keyframes bbPole1k{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+  @keyframes bbPole2k{0%,100%{transform:rotate(6deg)}50%{transform:rotate(-8deg)}}
+  @keyframes bbBlink{0%,88%,100%{opacity:.9}92%{opacity:.2}95%{opacity:1}}
+  @keyframes bbSun{0%,100%{opacity:.9}50%{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.bbRig,.bbDogA,.bbDogB,.bbBar,.bbSun,.bbPole1,.bbPole2{animation:none}}
+</style>
+
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFD89B"/>
+      <stop offset="55%" stop-color="#F2B845"/>
+      <stop offset="100%" stop-color="#E66A3D"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2E4C4"/>
+      <stop offset="100%" stop-color="#D6BB85"/>
+    </linearGradient>
+    <linearGradient id="truckOrange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C25E1F"/>
+      <stop offset="55%" stop-color="#9A4214"/>
+      <stop offset="100%" stop-color="#6E2D0C"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5A8FA0"/>
+      <stop offset="100%" stop-color="#26424F"/>
+    </linearGradient>
+    <linearGradient id="topShine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE066" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#FFE066" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Text arc paths — text DOWN: top arc tighter (text closer to center), bottom arc wider (text further from truck) -->
+    <path id="topArc" d="M 217 512 A 295 295 0 0 1 807 512" fill="none"/>
+    <path id="botArc" d="M 192 512 A 320 320 0 0 0 832 512" fill="none"/>
+
+    <!-- Inner scene clip — scene shifted up so truck can breathe -->
+    <clipPath id="sceneClip">
+      <circle cx="512" cy="500" r="235"/>
+    </clipPath>
+  </defs>
+
+  <!-- ROUNDED-SQUARE CREAM BACKPLATE -->
+  <rect x="0" y="0" width="1024" height="1024" rx="224" ry="224" fill="#F8F2E4"/>
+
+  <!-- =========================================================
+       OUTER TIRE — proper aggressive M/T tread:
+       15 chunky trapezoid lugs + 15 narrow lugs offset 12° + sipes
+       ========================================================= -->
+  <g transform="translate(512 512)">
+
+    <!-- 15 BIG outer lugs (slight outward flare = trapezoid) -->
+    <g fill="#1B3A52">
+      <g><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(24)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(48)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(72)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(96)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(120)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(144)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(168)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(192)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(216)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(240)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(264)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(288)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(312)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+      <g transform="rotate(336)"><path d="M -23 -445 L 23 -445 L 18 -388 L -18 -388 Z"/></g>
+    </g>
+
+    <!-- 15 SMALLER infill lugs at 12° offset -->
+    <g fill="#0E2638">
+      <g transform="rotate(12)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(36)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(60)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(84)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(108)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(132)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(156)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(180)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(204)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(228)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(252)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(276)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(300)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(324)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+      <g transform="rotate(348)"><rect x="-10" y="-435" width="20" height="32" rx="2"/></g>
+    </g>
+
+    <!-- Sipes (tread slits) on big lugs -->
+    <g fill="#F8F2E4" opacity="0.35">
+      <g><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(24)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(48)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(72)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(96)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(120)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(144)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(168)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(192)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(216)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(240)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(264)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(288)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(312)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+      <g transform="rotate(336)"><rect x="-1.5" y="-440" width="3" height="46"/></g>
+    </g>
+  </g>
+
+  <!-- TIRE SIDEWALL (dark band) -->
+  <circle cx="512" cy="512" r="395" fill="#1B3A52"/>
+  <circle cx="512" cy="512" r="395" fill="none" stroke="#0E2638" stroke-width="3"/>
+  <circle cx="512" cy="512" r="385" fill="none" stroke="#0E2638" stroke-width="1" opacity="0.6"/>
+
+  <!-- BEADLOCK RIM -->
+  <circle cx="512" cy="512" r="374" fill="none" stroke="#2F4D66" stroke-width="2"/>
+
+  <!-- INNER CREAM BADGE FACE -->
+  <circle cx="512" cy="512" r="370" fill="#F8F2E4"/>
+
+  <!-- DECORATIVE RINGS -->
+  <circle cx="512" cy="512" r="356" fill="none" stroke="#1B3A52" stroke-width="5"/>
+  <circle cx="512" cy="512" r="343" fill="none" stroke="#1B3A52" stroke-width="1.5"/>
+
+  <!-- TOP ARC TEXT — BEACH BRINGS (smaller + tighter arc = sits lower in badge) -->
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="900" fill="#1B3A52" letter-spacing="5">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">BEACH BRINGS</textPath>
+  </text>
+
+  <!-- BOTTOM ARC TEXT — EST · 2026 (smaller + wider arc = sits closer to outer edge, away from truck) -->
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#1B3A52" letter-spacing="10">
+    <textPath href="#botArc" startOffset="50%" text-anchor="middle">★  EST · 2026  ★</textPath>
+  </text>
+
+  <!-- SIDE DIAMOND ORNAMENTS -->
+  <g fill="#1B3A52">
+    <polygon points="178,512 192,498 206,512 192,526"/>
+    <polygon points="818,512 832,498 846,512 832,526"/>
+  </g>
+
+  <!-- =========================================================
+       INNER SCENE — sunrise + truck
+       ========================================================= -->
+  <g clip-path="url(#sceneClip)">
+    <!-- Sky — shifted up -->
+    <rect x="200" y="265" width="624" height="280" fill="url(#sky)"/>
+
+    <!-- Sun glow + disc — shifted up -->
+    <g class="bbSun"><circle cx="512" cy="420" r="120" fill="url(#sunGlow)"/><circle cx="512" cy="420" r="46" fill="#FFE066"/></g>
+
+    <!-- Pelicans (distant) — shifted up -->
+    <path d="M 360 365 q 8 -8 18 0 q 10 -8 18 0" stroke="#1B3A52" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 410 340 q 7 -6 14 0 q 7 -6 14 0" stroke="#1B3A52" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 600 352 q 8 -8 18 0 q 10 -8 18 0" stroke="#1B3A52" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 650 375 q 7 -6 14 0 q 7 -6 14 0" stroke="#1B3A52" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Ocean strip — shifted up -->
+    <rect x="200" y="515" width="624" height="20" fill="#4A9CB8"/>
+    <path d="M 230 525 Q 320 520 410 525 T 580 525 T 760 525" stroke="#FFFFFF" stroke-width="3" fill="none" opacity="0.6"/>
+
+    <!-- Sand foreground — shifted up -->
+    <rect x="200" y="535" width="624" height="200" fill="url(#sand)"/>
+
+    <!-- Sand grain dots — shifted up -->
+    <g fill="#1B3A52" opacity="0.18">
+      <circle cx="320" cy="660" r="2"/>
+      <circle cx="350" cy="680" r="1.5"/>
+      <circle cx="280" cy="690" r="2"/>
+      <circle cx="380" cy="700" r="1.5"/>
+      <circle cx="650" cy="660" r="2"/>
+      <circle cx="690" cy="680" r="1.5"/>
+      <circle cx="720" cy="695" r="2"/>
+      <circle cx="745" cy="675" r="1.5"/>
+    </g>
+
+    <!-- Truck shadow — under new truck position (truck moved UP per redline) -->
+    <ellipse cx="512" cy="637" rx="160" ry="9" fill="#1B3A52" opacity="0.3"/>
+
+    <!-- =========================================================
+         BEACH BRINGS RIG — DARK ORANGE offroad truck
+         (Rebel-inspired styling, BB-branded for legal cleanliness)
+         Moved UP toward the sun per redline.
+         ========================================================= -->
+    <g class="bbRig"><g transform="translate(512 560) scale(1.08)">
+
+      <!-- REAR WHEEL -->
+      <g transform="translate(-100 38)">
+        <circle r="42" fill="#1B1B1B"/>
+        <g fill="#0A0A0A">
+          <rect x="-7" y="-40" width="14" height="12" rx="1"/>
+          <g transform="rotate(30)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(60)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(90)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(120)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(150)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(180)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(210)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(240)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(270)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(300)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(330)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+        </g>
+        <circle r="33" fill="#1B1B1B" stroke="#000" stroke-width="1.5"/>
+        <circle r="26" fill="#2A2A2A"/>
+        <g fill="#0E0E0E">
+          <path d="M 0 -23 L -5 -8 L 5 -8 Z"/>
+          <g transform="rotate(72)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+          <g transform="rotate(144)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+          <g transform="rotate(216)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+          <g transform="rotate(288)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+        </g>
+        <circle r="7" fill="#1B1B1B" stroke="#444" stroke-width="1"/>
+        <circle r="3" fill="#C25E1F"/>
+      </g>
+
+      <!-- FRONT WHEEL -->
+      <g transform="translate(100 38)">
+        <circle r="42" fill="#1B1B1B"/>
+        <g fill="#0A0A0A">
+          <rect x="-7" y="-40" width="14" height="12" rx="1"/>
+          <g transform="rotate(30)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(60)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(90)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(120)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(150)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(180)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(210)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(240)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(270)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(300)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+          <g transform="rotate(330)"><rect x="-7" y="-40" width="14" height="12" rx="1"/></g>
+        </g>
+        <circle r="33" fill="#1B1B1B" stroke="#000" stroke-width="1.5"/>
+        <circle r="26" fill="#2A2A2A"/>
+        <g fill="#0E0E0E">
+          <path d="M 0 -23 L -5 -8 L 5 -8 Z"/>
+          <g transform="rotate(72)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+          <g transform="rotate(144)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+          <g transform="rotate(216)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+          <g transform="rotate(288)"><path d="M 0 -23 L -5 -8 L 5 -8 Z"/></g>
+        </g>
+        <circle r="7" fill="#1B1B1B" stroke="#444" stroke-width="1"/>
+        <circle r="3" fill="#C25E1F"/>
+      </g>
+
+      <!-- BLACK ROCKER PANEL + skid -->
+      <rect x="-60" y="30" width="120" height="10" rx="3" fill="#161616"/>
+      <rect x="-150" y="22" width="308" height="14" fill="#0E0E0E"/>
+
+      <!-- ============ OPEN PICKUP BED (rear) ============ -->
+      <rect x="-150" y="-8" width="120" height="32" fill="url(#truckOrange)"/>
+      <rect x="-150" y="-12" width="120" height="5" rx="1" fill="#5C2509"/>
+      <rect x="-144" y="-7" width="108" height="11" fill="#3A1605"/>
+      <line x1="-150" y1="-7" x2="-150" y2="24" stroke="#3A1605" stroke-width="2"/>
+      <text x="-92" y="17" text-anchor="middle" font-family="Impact,'Arial Black',sans-serif" font-size="15" font-weight="900" fill="#5C2509" letter-spacing="2">BB</text>
+
+      <!-- ============ TWO DOGS IN THE BED ============ -->
+      <!-- grey dog (rear) -->
+      <g class="bbDogA"><g transform="translate(-119 -10) scale(1.2)">
+        <path d="M -14 -2 q -9 -3 -10 -14 q 6 5 12 7 z" fill="#3E4246"/>
+        <path d="M -14 2 Q -16 -22 0 -24 Q 14 -24 14 -8 Q 14 2 8 2 Z" fill="#565B60"/>
+        <rect x="5" y="-9" width="6" height="11" rx="3" fill="#565B60"/>
+        <path d="M 4 -16 Q 13 -17 13 -6 Q 13 3 7 3 Q 2 1 3 -8 Q 3 -14 4 -16 Z" fill="#F2EFE6"/>
+        <circle cx="9" cy="-27" r="9" fill="#565B60"/>
+        <path d="M 3 -33 q -6 1 -5 10 q 5 -4 8 -5 z" fill="#3E4246"/>
+        <path d="M 16 -28 q 8 1 9 5 q -5 2 -9 1 z" fill="#6B7075"/>
+        <circle cx="24" cy="-25" r="1.7" fill="#161616"/>
+        <circle cx="11" cy="-28" r="1.5" fill="#161616"/>
+        <rect x="2" y="-20" width="15" height="4.2" rx="2" fill="#F26722" transform="rotate(10 9 -18)"/>
+        <circle cx="9" cy="-14.5" r="1.8" fill="#F2B845"/>
+      </g></g>
+      <!-- brown dog (front, ears up, tongue out) -->
+      <g class="bbDogB"><g transform="translate(-66 -12) scale(1.25)">
+        <path d="M -13 0 q -9 -3 -11 -13 q 6 5 12 7 z" fill="#6E4321"/>
+        <path d="M -13 2 Q -15 -24 1 -26 Q 15 -26 15 -9 Q 15 2 9 2 Z" fill="#8B5A2B"/>
+        <rect x="6" y="-10" width="6" height="12" rx="3" fill="#8B5A2B"/>
+        <circle cx="10" cy="-29" r="9" fill="#8B5A2B"/>
+        <path d="M 5 -38 q -3 4 1 9 q 3 -3 4 -7 z" fill="#6E4321"/>
+        <path d="M 17 -30 q 8 1 9 5 q -5 2 -9 1 z" fill="#A6743C"/>
+        <circle cx="25" cy="-27" r="1.7" fill="#161616"/>
+        <circle cx="12" cy="-30" r="1.5" fill="#161616"/>
+        <path d="M 20 -23 q 3 4 7 3" stroke="#C25E1F" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <rect x="3" y="-22" width="15" height="4.2" rx="2" fill="#F26722" transform="rotate(10 10 -20)"/>
+        <circle cx="10" cy="-16.5" r="1.8" fill="#F2B845"/>
+      </g></g>
+
+      <!-- ============ FISHING POLES (wiggle when parked) ============ -->
+      <g class="bbPole1">
+        <path d="M -50 -8 Q -64 -56 -82 -98" stroke="#15263A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <circle cx="-49" cy="-6" r="3" fill="#F2B845"/>
+        <circle cx="-49" cy="-6" r="1.3" fill="#5C2509"/>
+        <circle cx="-82" cy="-98" r="1.6" fill="#15263A"/>
+      </g>
+      <g class="bbPole2">
+        <path d="M -40 -8 Q -52 -52 -67 -90" stroke="#15263A" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="-39" cy="-6" r="2.7" fill="#F2B845"/>
+        <circle cx="-39" cy="-6" r="1.2" fill="#5C2509"/>
+        <circle cx="-67" cy="-90" r="1.4" fill="#15263A"/>
+      </g>
+
+      <!-- ============ CREW CAB ============ -->
+      <rect x="-30" y="-30" width="128" height="54" fill="url(#truckOrange)"/>
+      <path d="M -22 -30 L -4 -72 L 80 -72 L 98 -34 Z" fill="url(#truckOrange)"/>
+      <line x1="-4" y1="-72" x2="80" y2="-72" stroke="#5C2509" stroke-width="2"/>
+      <rect x="6" y="-80" width="74" height="8" rx="2" fill="#0E0E0E"/>
+      <rect class="bbBar" x="9" y="-78" width="68" height="3" fill="#F2B845" opacity="0.9"/>
+      <path d="M 2 -68 L 78 -68 L 92 -34 L 64 -34 Z" fill="url(#window)"/>
+      <path d="M -16 -30 L 0 -66 L 40 -66 L 40 -30 Z" fill="url(#window)"/>
+      <path d="M 44 -66 L 60 -66 L 60 -30 L 44 -30 Z" fill="url(#window)"/>
+      <rect x="40" y="-66" width="4" height="36" fill="#0E0E0E"/>
+      <line x1="14" y1="-30" x2="14" y2="22" stroke="#5C2509" stroke-width="1.5"/>
+      <line x1="68" y1="-30" x2="68" y2="22" stroke="#5C2509" stroke-width="1.5"/>
+      <rect x="24" y="-8" width="11" height="3" rx="1" fill="#0E0E0E"/>
+      <rect x="78" y="-8" width="11" height="3" rx="1" fill="#0E0E0E"/>
+
+      <!-- ============ HOOD + AGGRESSIVE REBEL FRONT ============ -->
+      <path d="M 98 -30 L 150 -20 L 156 8 L 98 8 Z" fill="url(#truckOrange)"/>
+      <line x1="104" y1="-15" x2="146" y2="-9" stroke="#5C2509" stroke-width="2" opacity="0.5"/>
+      <ellipse cx="126" cy="-5" rx="14" ry="3" fill="#0E0E0E"/>
+      <rect x="128" y="-18" width="30" height="34" rx="2" fill="#0E0E0E"/>
+      <line x1="129" y1="-10" x2="157" y2="-10" stroke="#3A3A3A" stroke-width="1.5"/>
+      <line x1="129" y1="-3" x2="157" y2="-3" stroke="#3A3A3A" stroke-width="1.5"/>
+      <line x1="129" y1="10" x2="157" y2="10" stroke="#3A3A3A" stroke-width="1.5"/>
+      <text x="143" y="5" text-anchor="middle" font-family="Impact,'Arial Black',sans-serif" font-size="14" font-weight="900" fill="#C25E1F" letter-spacing="1">BB</text>
+      <rect x="119" y="-20" width="9" height="8" rx="1.5" fill="#FFE066"/>
+      <path d="M 98 8 L 160 8 L 160 26 L 122 26 Z" fill="#0E0E0E"/>
+      <circle cx="150" cy="17" r="4" fill="#F2B845"/>
+      <rect x="124" y="22" width="7" height="6" fill="#C25E1F"/>
+      <rect x="140" y="22" width="7" height="6" fill="#C25E1F"/>
+
+      <!-- ============ CHUNKY FENDER FLARES ============ -->
+      <path d="M -150 38 A 52 52 0 0 1 -50 38 L -50 22 L -150 22 Z" fill="#0E0E0E"/>
+      <path d="M 50 38 A 52 52 0 0 1 156 38 L 156 22 L 50 22 Z" fill="#0E0E0E"/>
+
+      <!-- beltline highlight -->
+      <rect x="-150" y="-30" width="306" height="2" fill="#D87838" opacity="0.45"/>
+    </g>
+
+    </g>
+    <!-- TIRE TRACKS IN SAND — shifted up under v3 truck position -->
+    <g stroke="#1B3A52" stroke-width="3" fill="none" opacity="0.22" stroke-linecap="round">
+      <path d="M 270 658 Q 350 653 430 658"/>
+      <path d="M 275 671 Q 355 666 435 671"/>
+    </g>
+    <g stroke="#1B3A52" stroke-width="2" opacity="0.2">
+      <line x1="280" y1="654" x2="280" y2="662"/>
+      <line x1="310" y1="654" x2="310" y2="662"/>
+      <line x1="340" y1="654" x2="340" y2="662"/>
+      <line x1="370" y1="654" x2="370" y2="662"/>
+      <line x1="400" y1="654" x2="400" y2="662"/>
+    </g>
+  </g>
+
+  <!-- SUBTLE TOP SHINE -->
+  <rect x="0" y="0" width="1024" height="512" rx="224" ry="224" fill="url(#topShine)"/>
+</svg>
